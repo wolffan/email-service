@@ -1,0 +1,18 @@
+[Unit]
+Description=VTL Email Service
+After=network.target
+
+[Service]
+Type=simple
+User=vtl
+Group=vtl
+WorkingDirectory=/home/vtl/vtl/email-service
+Environment=PORT=3000
+ExecStart=/usr/bin/node /home/vtl/vtl/email-service/server.js
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
